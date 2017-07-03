@@ -1,0 +1,8 @@
+<h1>Ceci fut la météo à <%= @city %> le <%= @date %>!</h1>
+
+<% @meteos.each do |meteo| %>
+  <ul class="list-inline">
+    <li><%= meteo["date"]["hour"] %>: <%= meteo["date"]["hour"] %></li>
+    <li><%= meteo["tempm"] %> C</li>
+  </ul>
+<% end %>

@@ -1,6 +1,7 @@
 // Graphical variables
 @import "config/variables";
 @import "config/bootstrap_variables";
+@import "bootstrap-datepicker";
 
 // External libraries
 @import "bootstrap-sprockets";
@@ -10,6 +11,7 @@
 @import "vendor/index";
 
 // Your CSS
-@import "layout/index";
-@import "components/index";
-@import "pages/index";
+@import "layout/*";
+@import "components/*";
+@import "pages/*";
+
