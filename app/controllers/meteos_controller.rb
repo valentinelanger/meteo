@@ -11,7 +11,7 @@ class MeteosController < ApplicationController
     if params[:city].present? && params[:date].present?
       @city = params[:city]
       @date = params[:date]
-      @meteos = weather_answer(params[:city], params[:date])
+      @meteos = weather_answer(params[:city], Date.parse(params[:date]).strftime('%Y%m%d'))
     end
   end
 

@@ -2,8 +2,7 @@
 
 <% @meteos.each do |meteo| %>
   <ul class="list-inline">
-    <li><%= meteo["date"]["hour"] %> : <%= meteo["date"]["min"] %></li>
+    <li><%= meteo["date"]["hour"] %>: <%= meteo["date"]["hour"] %></li>
     <li><%= meteo["tempm"] %> C</li>
   </ul>
 <% end %>
-
