@@ -30,9 +30,9 @@
 <!--         <div ng-repeat="meteo in meteos">
           <get-weather weather="meteo"> </get-weather>
         </div> -->
-        <div class="forecast">
-          <p>{{ results["date"]["hour"] }}: {{ results["date"]["min"] }}</p>
-          <p>{{ results["tempm"] }} °C</p>
+        <div class="forecast" ng-repeat="result in results">
+          <p>{{ result["date"]["hour"] }}: {{ result["date"]["min"] }}</p>
+          <p>{{ result["tempm"] }} °C</p>
 
           <div ng-repeat="meteo in meteos">
             <get-weather weather="meteo"> </get-weather>
