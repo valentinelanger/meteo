@@ -7,6 +7,7 @@
 //= require_tree .
 //= require_tree ./controllers
 //= require_tree ./directives
+//= require_tree ./services
 //= require bootstrap-datepicker
 
 $(document).ready(function() {

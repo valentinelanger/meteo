@@ -22,12 +22,20 @@
               <button type="submit" class="btn btn-primary">rechercher</button>
             </form>
           </div>
+          <!-- <get-weather></get-weather> -->
         </div>
       </div>
 
       <div class="container">
-        <div ng-repeat="meteo in meteos">
+<!--         <div ng-repeat="meteo in meteos">
           <get-weather weather="meteo"> </get-weather>
+        </div> -->
+        <div class="forecast">
+          <p>{{ results }}</p>
+
+          <div ng-repeat="meteo in meteos">
+            <get-weather weather="meteo"> </get-weather>
+          </div>
         </div>
       </div>
 
