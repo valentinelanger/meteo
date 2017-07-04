@@ -15,6 +15,8 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'angularjs-rails'
+gem 'angular-rails-templates'
 
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
