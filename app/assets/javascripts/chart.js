@@ -14,6 +14,8 @@ d3.custom.barChart = function module() {
 
             var chartW = width - margin.left - margin.right,
                 chartH = height - margin.top - margin.bottom;
+            console.log(chartH);
+            console.log(chartW);
 
             var x1 = d3.scale.ordinal()
                 .domain(_data.map(function(d, i){ return i; }))
@@ -24,7 +26,7 @@ d3.custom.barChart = function module() {
                 .rangeRoundBands([0, chartW], .1);
 
             var y1 = d3.scale.linear()
-                .domain([0, d3.max(_data, function(d, i){ return d; })])
+                .domain([d3.min(_data, function(d, i){ return d < 0 ? d : 0; }), d3.max(_data, function(d, i){ return d < 0 ? 0 : d; })])
                 .range([chartH, 0]);
 
             var xAxis = d3.svg.axis()
@@ -55,7 +57,7 @@ d3.custom.barChart = function module() {
                 .transition()
                 .duration(duration)
                 .ease(ease)
-                .attr({transform: 'translate(0,' + (chartH) + ')'})
+                .attr({transform: 'translate(0,' + y1(0) + ')'})
                 .call(xAxis);
 
             svg.select('.y-axis-group.axis')
@@ -63,6 +65,14 @@ d3.custom.barChart = function module() {
                 .duration(duration)
                 .ease(ease)
                 .call(yAxis);
+
+            // svg.append("g")
+            //   .attr("class", "x axis")
+            //   .append("line")
+            //   .attr("y1", y1(0))
+            //   .attr("y2", y1(0))
+            //   .attr("x2", width);
+
 
             var gapSize = x1.rangeBand() / 100 * gap;
             var barW = x1.rangeBand() - gapSize;
@@ -74,17 +84,23 @@ d3.custom.barChart = function module() {
                 .attr({x: chartW,
                     width: barW,
                     y: function(d, i) { return y1(d); },
-                    height: function(d, i) { return chartH - y1(d); }
+                    height: function(d, i) { return Math.abs(y1(d) - y1(0)); }
                 })
                 .on('mouseover', dispatch.customHover);
             bars.transition()
                 .duration(duration)
                 .ease(ease)
+                .attr("class", function(d) { return d < 0 ? "bar negative" : "bar positive"; })
                 .attr({
                     width: barW,
                     x: function(d, i) { return x1(i) + gapSize/2; },
-                    y: function(d, i) { return y1(d); },
-                    height: function(d, i) { return chartH - y1(d); }
+                    y: function(d) { if (d > 0){
+                        return y1(d);
+                        } else {
+                        return y1(0);
+                        }
+                     },
+                    height: function(d) { return Math.abs(y1(d) - y1(0)); }
                 });
             bars.exit().transition().style({opacity: 0}).remove();
 
