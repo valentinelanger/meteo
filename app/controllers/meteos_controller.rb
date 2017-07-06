@@ -26,6 +26,6 @@ class MeteosController < ApplicationController
     filepath = "#{url}/#{API_KEY}/history_#{date}/q/FR/#{city}.json"
     meteo_attempt = open(filepath).read
     meteo = JSON.parse(meteo_attempt)
-    return meteo["history"]["observations"]
+    return meteo
   end
 end

@@ -1,3 +1,3 @@
-var app = angular.module('ekiMeteo', ['templates']);
+var app = angular.module('ekiMeteo', []);
 
 

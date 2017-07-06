@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>METEO EN FRANCE</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -22,7 +23,15 @@
               <button type="submit" class="btn btn-primary">rechercher</button>
             </form>
           </div>
-          <!-- <get-weather></get-weather> -->
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <h4>À {{ city }}, le {{ date }}:</h4>
+          <bar-chart height="350" data="data"></bar-chart>
+        </div>
         </div>
       </div>
 
@@ -30,14 +39,11 @@
 <!--         <div ng-repeat="meteo in meteos">
           <get-weather weather="meteo"> </get-weather>
         </div> -->
-        <div class="forecast" ng-repeat="result in results">
+<!--         <div class="forecast">
           <p>{{ result["date"]["hour"] }}: {{ result["date"]["min"] }}</p>
           <p>{{ result["tempm"] }} °C</p>
+        </div> -->
 
-          <div ng-repeat="meteo in meteos">
-            <get-weather weather="meteo"> </get-weather>
-          </div>
-        </div>
       </div>
 
     </div>
