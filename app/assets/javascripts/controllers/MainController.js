@@ -1,8 +1,5 @@
 app.controller('MainController', ['$scope', 'forecast', function($scope, forecast) {
-    forecast.then(function(response) {
-      $scope.results = response["history"]["observations"];
-      console.log(getArrayOfTemperatures(response["history"]["observations"]));
-      console.log(getArrayOfHours(response["history"]["observations"]));
+    $scope.updateData = forecast.then(function(response) {
       $scope.data = getArrayOfTemperatures(response["history"]["observations"]);
       $scope.hours = getArrayOfHours(response["history"]["observations"]);
       $scope.city = getParameterByName('city');
