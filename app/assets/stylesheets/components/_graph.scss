@@ -1,0 +1,9 @@
+.axis path, .axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: $blue;
+}
