@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # get '/', to: 'meteos#ask'
   # get ''
   get 'answer', to: 'meteos#answer'
+  get 'search', to: 'meteos#search'
   # get '/answer', to: 'meteos#answer'
 
   root 'meteos#ask'

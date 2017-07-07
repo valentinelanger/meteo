@@ -1,0 +1,19 @@
+.btn-search {
+  background-color: $rythm;
+  opacity: 0.9;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  &:hover {
+    opacity: 1;
+    background: $rythm;
+    text-decoration: none;
+    color: white;
+  }
+  &:focus {
+    outline: none;
+    color: white;
+  }
+}
+

@@ -14,8 +14,6 @@ d3.custom.barChart = function module() {
 
             var chartW = width - margin.left - margin.right,
                 chartH = height - margin.top - margin.bottom;
-            console.log(chartH);
-            console.log(chartW);
 
             var x1 = d3.scale.ordinal()
                 .domain(_data.map(function(d, i){ return i; }))
@@ -30,7 +28,7 @@ d3.custom.barChart = function module() {
                 .range([chartH, 0]);
 
             var xAxis = d3.svg.axis()
-                .scale(x2)
+                .scale(x1)
                 .orient('bottom');
 
             var yAxis = d3.svg.axis()

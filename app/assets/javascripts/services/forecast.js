@@ -1,18 +1,21 @@
-app.factory('forecast', ['$http', function($http) {
-  var city = getParameterByName('city');
-  var date = getParameterByName('date');
+app.factory('Forecast', function($http) {
 
-  return $http({
-    method: 'GET',
-    url: '/answer.json?city='+city+'&date='+date,
-    headers: { 'Accept': 'application/json, */*'},
-  }).then(function successCallback(response) {
-    console.log(response.data);
-    return response.data;
-  }, function errorCallback(response) {
-    return response.data;
-  });
-}]);
+
+  var Forecast = {
+    async: function(city, date) {
+      var promise = $http({
+          method: 'GET',
+          url: '/answer.json?city='+city+'&date='+date,
+          headers: { 'Accept': 'application/json, */*'},
+          }).then(function(response) {
+            console.log(getArrayOfTemperatures(response.data["history"]["observations"]));
+            return getArrayOfTemperatures(response.data["history"]["observations"]);
+          });
+      return promise;
+    }
+  }
+  return Forecast;
+});
 
 
 

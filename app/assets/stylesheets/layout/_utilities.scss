@@ -9,3 +9,23 @@
   min-height: 60vh;
   display: inline;
 }
+
+
+.form-control {
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #f9fafa;
+  box-shadow: none !important;
+  border: 2px solid #d4d9dd !important;
+  font-size: 16px !important;
+  font-weight: normal;
+  color: $gray2;
+}
+
+p, h4 {
+  color: $gray2 !important;
+}
+
+.marged-top {
+  margin-top: 60px;
+}
