@@ -1,9 +1,11 @@
 app.controller('MainController', ['$scope', 'Forecast',
   function($scope, Forecast) {
-    $scope.city = getParameterByName('city');
-    $scope.date = getParameterByName('date');
     $scope.updateData = function() {
-      Forecast.async().then(function(response) {
+      var city = $scope.city;
+      console.log(city);
+      var date = $scope.date;
+      console.log(city);
+      Forecast.async(city, date).then(function(response) {
         $scope.data = response;
       });
     }

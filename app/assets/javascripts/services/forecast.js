@@ -1,10 +1,8 @@
 app.factory('Forecast', function($http) {
-  var city = getParameterByName('city');
-  var date = getParameterByName('date');
-  var ville = document.getElementById("ville").value;
-  console.log(ville);
+
+
   var Forecast = {
-    async: function() {
+    async: function(city, date) {
       var promise = $http({
           method: 'GET',
           url: '/answer.json?city='+city+'&date='+date,
