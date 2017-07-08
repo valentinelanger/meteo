@@ -1,10 +1,14 @@
 app.controller('MainController', ['$scope', 'Forecast',
   function($scope, Forecast) {
+    $scope.minDate = new Date().toDateString();
+    console.log("HELLO WORLD");
+
+
     $scope.updateData = function() {
       var city = $scope.city;
       console.log(city);
       var date = $scope.date;
-      console.log(city);
+      console.log(date);
       Forecast.async(city, date).then(function(response) {
         $scope.data = response;
       });
@@ -32,3 +36,21 @@ function getArrayOfHours(response) {
   }
   return hours;
 }
+
+
+app.directive('customzdatetime', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModelCtrl) {
+            element.datetimepicker({
+                debug: false,
+                format: 'DD-MM-YYYY',
+                maxDate: moment()
+            }).on('dp.change', function (e) {
+                ngModelCtrl.$setViewValue(e.date);
+                scope.$apply();
+            });
+        }
+    };
+});

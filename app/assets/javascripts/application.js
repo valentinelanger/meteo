@@ -10,12 +10,5 @@
 //= require_tree ./services
 //= require bootstrap-datepicker
 
-$(document).ready(function() {
-  $('#datepicker').datepicker({
-    format: "dd/mm/yyyy",
-    endDate: "today",
-    language: "fr",
-    autoclose: true
-  });
-});
+
 
