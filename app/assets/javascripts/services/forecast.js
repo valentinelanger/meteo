@@ -1,6 +1,4 @@
 app.factory('Forecast', function($http) {
-
-
   var Forecast = {
     async: function(city, date) {
       var promise = $http({
@@ -8,7 +6,6 @@ app.factory('Forecast', function($http) {
           url: '/answer.json?city='+city+'&date='+date,
           headers: { 'Accept': 'application/json, */*'},
           }).then(function(response) {
-            console.log(getArrayOfTemperatures(response.data["history"]["observations"]));
             return getArrayOfTemperatures(response.data["history"]["observations"]);
           });
       return promise;

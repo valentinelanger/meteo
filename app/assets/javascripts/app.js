@@ -1,3 +1,3 @@
-var app = angular.module('ekiMeteo', []);
+var app = angular.module('ekiMeteo', ['720kb.datepicker']);
 
 

@@ -6,6 +6,7 @@
     <title>METEO EN FRANCE</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -17,9 +18,11 @@
       <div class="container form">
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-            <form class="form-inline text-center">
+            <form class="form-inline text-center flex-input">
               <input type="text" id="ville" class="form-control" name="city" ng-model="city" placeholder="Paris">
-              <input type="text" id="datepicker" class="form-control" name="date" ng-model="date" placeholder="07/04/2011">
+              <datepicker date-format="dd/MM/yyyy" date-max-limit="{{minDate}}">
+                <input class="form-control" name="date" ng-model="date" type="text" placeholder="07/04/2011"/>
+              </datepicker>
               <button type="submit" ng-click="updateData()" class="btn btn-search">rechercher</button>
             </form>
           </div>
@@ -29,7 +32,7 @@
       <div class="container marged-top">
         <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-          <h4>Évolution de la température à {{ city }}, le {{ date }}:</h4>
+          <h4 class="test">Évolution de la température à {{ city }}, le {{ date | date: "fullDate" }}:</h4>
           <bar-chart height="350" data="data"></bar-chart>
         </div>
         </div>
