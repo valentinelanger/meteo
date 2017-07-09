@@ -16,12 +16,3 @@ app.directive('datePicker', function() {
   }
 });
 
-
-//     $('#datepicker').datepicker({
-
-//       endDate: "today",
-
-//       onSelect: function(date) {
-//         angular.element($("#datepicker")).triggerHandler('input');
-//       }
-//     });

@@ -1,8 +1,8 @@
 app.controller('MainController', ['$scope', 'Forecast',
   function($scope, Forecast) {
     $scope.minDate = new Date().toDateString();
-    console.log("HELLO WORLD");
-
+    $scope.towns = TOWNS;
+    $scope.town = $scope.towns[1];
 
     $scope.updateData = function() {
       var city = $scope.city;
@@ -54,3 +54,5 @@ app.directive('customzdatetime', function () {
         }
     };
 });
+
+TOWNS = ['Paris', 'Reims', 'Marseille'];
